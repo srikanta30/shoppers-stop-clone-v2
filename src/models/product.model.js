@@ -18,6 +18,9 @@ const productSchema=new mongoose.model({
     image_2:{type:String,required:true},
     image_3:{type:String,required:true},
     image_4:{type:String,required:true},
+},
+{
+    versionKey:false
 })
 
 const Product=mongoose.model("product",productSchema);
