@@ -2,7 +2,7 @@
 
 * Users - full_name, email, mobile, password, gender, address, orders[{productid}], wishlist[{productid}].
 
-* Products - product_name, description, price, discount, brand_name, rating, sizes [string], color, images [string].
+* Products - product_name, description, price, discount, brand_name, rating, size1, size2, color, image1, image2, image3, image4.
 
 * Cart - user_id, product_id, quantity.
 
