@@ -1,0 +1,28 @@
+{
+  "name": "shoppers-stop-back-end",
+  "version": "1.0.0",
+  "description": "Shoppers Stop Clone Built With Node, Express, MongoDB, Mongoose, EJS, JS & CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srikanta30/Shoppers-Stop-Back-End.git"
+  },
+  "keywords": [
+    "shoppersstop"
+  ],
+  "author": "Srikanta Banerjee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srikanta30/Shoppers-Stop-Back-End/issues"
+  },
+  "homepage": "https://github.com/srikanta30/Shoppers-Stop-Back-End#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.8"
+  }
+}

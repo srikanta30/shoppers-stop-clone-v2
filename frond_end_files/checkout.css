@@ -1,0 +1,396 @@
+/*heading1*/
+
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
+
+* {
+    font-family: "PT Sans", sans-serif;
+  }
+  
+  #heading{
+    width: 100%;height: 60px;
+  }
+  #etho{
+    float:left;width: 25%;margin-left: 15%;height: 90%;margin-right: 2%
+  }
+  #hacko{
+    float: left;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;margin-top: 10px;margin-left: 10px;
+  }
+  #donn{
+    width: 100%;height: 1000px;
+  }
+  #pir{
+    height: 100%;width: 50%;margin-left: 15%;float: left;
+  }
+  #krr{
+    border:1px solid #E0E0E0
+  }
+  #deliveryaddress{
+    height: 100%;border: none;width: 30%;background-color: whitesmoke;cursor: pointer;font-size: 20px;margin-left: 2%;font-family: 'PTSans-bold-400';
+  }
+  #expressstorepickup{
+    height: 100%;border: none;width: 30%;background-color: #E0E0E0;cursor: pointer;font-size: 20px;font-family: 'PTSans-bold-400'
+  }
+  #firstname{
+    height: 25px;margin-left: 2%;width: 25%;
+  }
+  #lastname{
+    height: 25px;margin-left: 2%;width: 25%;
+  }
+  #ppp{
+    margin-left: 2%;margin-top: 20px;width: 5%;height: 25px;
+  }
+  #phone{
+    width: 45%;height: 25px;margin-left: 2%;margin-top: 20px;
+  }
+  #pin{
+    margin-top: 20px;margin-left: 2%;width: 53%;height: 25px;
+  }
+  #city{
+    height: 35px;margin-left: 2%;width: 25%;margin-top: 20px;background-color: #BDBDBD;
+  }
+  #stt{
+    height: 35px;margin-left: 2%;width: 25%;margin-top: 20px;background-color: #E0E0E0;
+  }
+  #address1,#address2{
+    margin-top: 20px;margin-left: 2%;width: 53%;height: 25px;
+  }
+  #checkbox1{
+    margin-top: 30px;margin-left: 3%;float: left;
+  }
+  #banng{
+    float: left;margin-top: 27px;margin-left: 2%;font-family: PTSans-Regular - 400;
+  }
+  #checkbox2{
+    margin-top: 30px;margin-left: 3%;float: left;
+  }
+  #eww{
+    float: left;margin-top: 27px;margin-left: 2%;font-family: PTSans-Regular - 400;color: #FF8A65;
+  }
+  #save{
+    background-color: #FF1744;margin-left: 65%;color: white;border: none;border-radius: 5px;width: 20%;height: 60px;cursor: pointer;margin-top: 30px;
+  }
+  #rightbox{
+    float: left;width: 20%;margin-left: 5%;height: 430px;background-color: #EEEEEE;
+  }
+  #daaa{
+    font-family:Arial, Helvetica, sans-serif;margin-left: 20%;color: #424242;
+  }
+  #promo{
+    margin-left: 12%;border: #BDBDBD;height: 25px;
+  }
+  #applypromo{
+    border: orange;color: orange;background-color: #FFCCBC;height: 30px;cursor: pointer;
+  }
+  #hwrr{
+    width: 80%;margin-top: 20px;
+  }
+  #subtotal{
+    float: right;margin-right: 5%;font-family: Verdana;
+  }
+  #offer{
+    float: right;margin-right: 5%;margin-top: -2px;
+  }
+  #coupon{
+    float: right;margin-right:5%;margin-top: -2px;
+  }
+  #payableamount{
+    float: right;margin-right:5%;margin-top: 10px;
+  }
+  #youhavesaved{
+    float: left;margin-top: -3px;margin-left: 5%;font-family: Verdana;
+  }
+  #savedd{
+    float: right;margin-right:5%;margin-top: -2px;color: #64DD17;
+  }
+  .oluu{
+    float: left;margin-top: -3px;margin-left: 5%;
+  }
+  #yakk{
+    float: left;margin-top: 10px;margin-left: 5%;color: #424242;
+  }
+  #hyy{
+    float: left;margin-left: 5%;
+  }
+  #freew{
+    float: right;margin-right: 5%;margin-top: -2px;
+  }
+  #josee{
+    float: right;margin-right: 5%;margin-top: -2px;
+  }
+.heading{
+    float: left;
+    margin-left: 40%;
+    width: 15%;
+    height: 100%;cursor: pointer;
+   
+}
+#heading .fas{
+    float: left;
+  
+    font-size: 32px;
+    margin-top: 15px;
+    color: green;
+    
+}
+#heading p{
+    float: left;
+    margin-top:5%;
+    font-size: 1.25rem;
+    margin-left: 3%;
+    text-transform: uppercase;
+    color: #37474F;
+    width: 80%;
+  
+}
+/*heading1*/
+.clear{
+    clear: both;
+}
+/*heading2*/
+.fa-lock{
+    float: left;
+    margin-left: 65%;
+    font-size: 1.25rem;
+    color: #FF7043;
+    margin-top: 10px;
+}
+#heading2 p{
+    color: #FF7043;
+    float: left;
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+margin-top: 10px;
+margin-left: 1%;
+}
+/*heading2*/
+/*signin*/
+.div1{
+    background-color: #BDBDBD;
+    height: 70px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+.fa-check{
+    color: green;
+    font-size:1.875rem;
+    margin: 1.25rem;
+    float: left;
+}
+.div1 h3{
+    float: left;
+    font-family:  'Open Sans-700', sans-serif;
+    padding: 5px;
+}
+.div1 p{
+    float: left;
+    margin-left: 4.5%;
+    margin-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+.div1 button{
+    float: right;
+    border: none;
+    color: #FF3D00;
+    background-color: white;
+    margin: 1.25rem;
+    font-size: 0.875rem;
+  
+    height: 40px;
+    width: 10%;
+   
+    cursor: pointer;
+   font-family: 'PTSans-Bold-400';
+  margin-top: 10px;
+}
+
+
+
+/*signin*/
+/*delivery*/
+.div2{
+    padding-top: 15px;
+    margin-top: 30px;
+    background-color: #BDBDBD;
+    height: 70px;
+    border-radius: 2px;
+}
+.div2 > h3{
+margin-left: 7%;
+font-family: 'Open Sans-700', sans-serif;
+margin-bottom: 5px;
+}
+.div2 > p{
+    visibility: hidden;
+    font-size: 5px;
+}
+/*delivery*/
+/*buttons*/
+.div3{
+margin-top: 15px;
+    height: 40px;
+    border-radius: 2px;
+}
+/*buttons*/
+/*inputs*/
+.div4{
+    height:600px;
+    width: 100%;
+    
+}
+/*inputs*/
+/*make payment*/
+.div5{
+    margin-top: 30px;
+    background-color: #BDBDBD;
+    height: 70px;
+    border-radius: 2px;
+}
+.div5 > h3{
+    margin-left: 7%;
+    font-family: 'Open Sans-700', sans-serif;
+    padding: 10px;
+    float: left;
+    color: #757575;
+    }
+    .div5 > h4{
+        float: left;
+        margin-left: 20%;
+        font-size: 24px;
+        margin-bottom: 5px;
+  color: #757575;
+  margin-top: 20px;
+    }   
+
+/*make payment*/
+
+
+.div6{
+    margin-top: 30px;
+    background-color: #BDBDBD;
+    height: 70px;
+    border-radius: 2px;
+}
+.div6 > h3{
+    margin-left: 7%;
+    font-family: 'Open Sans-700', sans-serif;
+    padding: 10px;
+    float: left;
+    }
+    .div6 > h4{
+        float: left;
+        margin-left: 20%;
+        font-size: 24px;
+        margin-bottom: 5px;
+    } 
+
+    a{
+        color: white;
+        text-decoration: none;
+    }
+
+    .imgpayment{
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+
+    .imgpayment img {
+        height: 20px;
+    }
+
+    .carddetails {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        margin-left: 10px;
+    }
+
+    .detailsbox{
+        margin-left: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    .detailsbox input[type=text]{
+        width: 30%;
+        height: 20px;
+    }
+
+    label{
+        margin-right: 20px;
+        margin-left: 10px;
+    }
+
+    .carddetails input {
+        margin-left: 20px;
+        width: 50px;
+        height: 20px;
+    }
+
+    .contcheckout{
+        margin-top: 30px;
+        width: 200px;
+        height: 40px;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNWQzYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjJjNjUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+        border: none;
+    }
+
+.div5 h5{
+    float: left;
+    margin-left: 2%;
+    font-size: 24px;
+    margin-bottom: 5px;
+color: #757575;
+margin-top: 20px;
+}
+/*make payment*/
+#main{
+    margin: 10px auto;
+    background-color:black;
+    color:white;
+    width:100%;
+    display: flex;
+}
+#main a{
+    text-decoration: none;
+    color: gray;
+    font-size: 12px;
+}
+#main ul{
+    margin-left: 3%;
+    line-height: 25px;
+
+}
+
+
+
+
+
+
+
+/*footer*/
+#wqqqq{
+  width:260px;height:40px;background-color: black;color: white;border-color: white;margin-top: 30px;
+}
+#naii{
+  width: 20%; height: 100%; margin-left: 7%
+}
+.blee{
+  width: 20%; height: 100%; margin-left: 15%
+}
+#huoo{
+  height: 150px; width: 100%; margin-top: 80px
+}
+#grfe{
+  height: 150px; width: 100%; background-color: #f5f5f5
+}
+#fvrv{
+  float: left; margin-left: 7%; height: 100%; width: 20%
+}
+#fefvcfe{
+  float: left; margin-left: 10%; height: 100%; width: 30%
+}
+#revefcv{
+  float: left; margin-left: 15%; height: 100%; width: 10%
+}
+/*footer*/
