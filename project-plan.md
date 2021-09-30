@@ -1,6 +1,7 @@
 ### Pages:
 
-* Home Page - Signup & Login.
+* Home Page.
+* Login, SignUp, OTP Page, SignInWithOTP Page.
 * Category Page.
 * Single Product Page.
 * Cart Page.

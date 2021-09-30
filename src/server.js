@@ -33,10 +33,10 @@ const paymentController = require('./controllers/payment.controller');
 app.use("/payment", paymentController);
 
 const productController = require('./controllers/product.controller');
-app.use("/products", productController);
+app.use("/product", productController);
 
 const successfulController = require('./controllers/successful.controller');
-app.use("/successful", successfulController)
+app.use("/successful", successfulController);
 
 const userController = require('./controllers/user.controller');
 app.use("/user", userController);
