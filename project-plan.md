@@ -1,3 +1,15 @@
+### Pages:
+
+* Home Page - Signup & Login.
+* Category Page.
+* Single Product Page.
+* Cart Page.
+* Wishlist Page.
+* Checkout Page.
+* Payment Page.
+* Order Processing.
+* Order Successful.
+
 ### Database Structure:
 
 * Users - full_name, email, mobile, password, gender, address, orders[{productid}], wishlist[{productid}].
@@ -18,9 +30,9 @@
 
 * src/server.js - This is our main file for the server. This will be managed by me. If you want to make any changes, please inform me first.
 
-* public - here we will store the images, css & js files required for the ejs files to work.
+* src/public - here we will store the images, css & js files required for the ejs files to work.
 
-* views - this is where we will have our partials and all the ejs files.
+* src/views - this is where we will have our partials and all the ejs files.
 
 * front_end_files - front end files required for the project.
 
