@@ -71,34 +71,6 @@
     });
   }
 
-  // var cart = [];
-
-  // localStorage.setItem("cart", JSON.stringify(cart));
-
-  // let crtbtn = document.getElementById("cartbtn");
-
-  // crtbtn.onclick = function () {
-
-  //     let tshirts =
-  //     {
-  //         id: "1",
-  //         name: "LIFE",
-  //         description: "Printed Cotton Regular Fit Mens T-Shirt",
-  //         price: "599",
-  //         discount: "50",
-  //         brand: "LIFE",
-  //         rating: "4.5",
-  //         sizes: ["LARGE", "MEDIUM", "SMALL", "X-LARGE", "X-SMALL", "XX-LARGE"],
-  //         color: "Coral",
-  //         images: ["https://sslimages.shoppersstop.com/sys-master/images/hf8/h61/16382984323102/S21183RNP456C_CORAL.jpg_1088Wx1632H", "https://sslimages.shoppersstop.com/sys-master/images/h9a/hb4/16383081906206/S21183RNP456C_CORAL_alt1.jpg_1088Wx1632H", "https://sslimages.shoppersstop.com/sys-master/images/hb6/h7a/16382968823838/S21183RNP456C_CORAL_alt2.jpg_1088Wx1632H"]
-  //     };
-  //     cart = JSON.parse(localStorage.getItem("cart"));
-
-  //     cart.push(tshirts)
-  //     localStorage.setItem("cart", JSON.stringify(cart));
-
-  // }
-
   if (localStorage.getItem("cart") === null) {
     localStorage.setItem("cart", "[]");
   }
