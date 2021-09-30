@@ -1,17 +1,23 @@
 // CRUD Controller:
 
-const get = (model) => async (req, res) => {
+const get = (model, filename = null) => async (req, res) => {
 	try {
 		const items = await model.find({}).lean().exec();
+        if (filename) {
+            return res.render(filename, {items});
+        }
 		return res.status(200).send({ items });
 	} catch (err) {
 		return res.status(400).send({ err });
 	}
 }
 
-const getOne = (model) => async (req, res) => {
+const getOne = (model, filename = null) => async (req, res) => {
 	try {
 		const item = await model.find({ _id: req.params.id }).lean().exec();
+        if (filename) {
+            return res.render(filename, {item});
+        }
 		return res.status(200).send({ item });
 	} catch (err) {
 		return res.status(400).send({ err });

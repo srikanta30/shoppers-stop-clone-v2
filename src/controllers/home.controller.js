@@ -1,9 +1,9 @@
 //Home Controller:
 
 const express = require('express');
-const app = express.Router();
+const router = express.Router();
 
-app.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
 	try {
 		res.render("home");
 	} catch (err) {
@@ -11,7 +11,7 @@ app.get("/", async (req, res) => {
 	}
 })
 
-app.get("/home", async (req, res) => {
+router.get("/home", async (req, res) => {
 	try {
 		res.render("home");
 	} catch (err) {
@@ -19,7 +19,7 @@ app.get("/home", async (req, res) => {
 	}
 })
 
-app.get("/cart", async (req, res) => {
+router.get("/cart", async (req, res) => {
 	try {
 		res.render("cart");
 	} catch (err) {
@@ -27,7 +27,7 @@ app.get("/cart", async (req, res) => {
 	}
 })
 
-app.get("/checkout", async (req, res) => {
+router.get("/checkout", async (req, res) => {
 	try {
 		res.render("checkout");
 	} catch (err) {
@@ -35,7 +35,7 @@ app.get("/checkout", async (req, res) => {
 	}
 })
 
-app.get("/payment", async (req, res) => {
+router.get("/payment", async (req, res) => {
 	try {
 		res.render("payment");
 	} catch (err) {
@@ -43,7 +43,7 @@ app.get("/payment", async (req, res) => {
 	}
 })
 
-app.get("/processing", async (req, res) => {
+router.get("/processing", async (req, res) => {
 	try {
 		res.render("processing");
 	} catch (err) {
@@ -51,7 +51,7 @@ app.get("/processing", async (req, res) => {
 	}
 })
 
-app.get("/successful", async (req, res) => {
+router.get("/successful", async (req, res) => {
 	try {
 		res.render("successful");
 	} catch (err) {
@@ -59,4 +59,4 @@ app.get("/successful", async (req, res) => {
 	}
 })
 
-module.exports = app;
+module.exports = router;

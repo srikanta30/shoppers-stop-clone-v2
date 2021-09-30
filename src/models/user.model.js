@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     password : {type:String,required:true},
     gender : {type:String,required:true},
     address : {type:String,required:true},
+    cart: [{ product : {type:mongoose.Schema.Types.ObjectId, ref:"product", required:true}, quantity: {Number,required:true}}],
     orders : [{type:mongoose.Schema.Types.ObjectId,ref:"product",required:true}],
     wishlist : [{type:mongoose.Schema.Types.ObjectId,ref:"product",required:true}]
 },
