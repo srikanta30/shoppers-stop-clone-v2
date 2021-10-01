@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: rgb(51, 51, 51);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ul li {
+  list-style: none;
+}
+.appStore > a > img,
+.googlePlay > a > img {
+  width: 120px;
+  margin: 5px;
+}
+.authenticProduct > img,
+.freeDelivery > img,
+.easyExchangeAndReturn > img,
+.expressStorePickup > img {
+  height: 50px;
+  width: 50px;
+}
+.fb img {
+  width: 50px;
+}
+.clear {
+  clear: both;
+}
+.footer-1 {
+  background: #f9f9fa;
+  padding: 30px 0 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.fb {
+  width: 33.33%;
+  float: left;
+  padding: 20px 20px;
+  text-align: center;
+}
+.fb h1 {
+  color: #646464;
+  padding-bottom: 15px;
+  font-weight: 400;
+}
+.f1b1 ul {
+  width: 100%;
+  margin-left: 15%;
+}
+.f1b1 ul li {
+  float: left;
+}
+.services > ul > li {
+  float: left;
+  text-align: center;
+  width: 25%;
+  padding: 0;
+}
+.services li span {
+  width: 100%;
+  display: block;
+  padding-top: 10px;
+  font-size: 11px;
+  color: #999;
+}
+.f1b3 ul {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.f1b3 ul li {
+  float: left;
+  margin-right: 15px;
+}
+.f1b3 ul li a {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+/* <!-- footer-1 end--> */
+
+/* <!-- footer-2 start--> */
+.f2b1 a {
+  color: red;
+}
+.fb h5 {
+  color: #999;
+}
+.footer-1 img {
+  width: 80%;
+  cursor: pointer;
+}
+.footer-2 img {
+  width: 60%;
+  cursor: pointer;
+}
+.footer-main,
+.container-fluid {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.footer-2 {
+  background-color: white;
+}
+/* SECOND PART */
+.last {
+  background-color: black;
+}
+.last_cont {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding: 30px;
+}
+.last_cont > ul > li {
+  font: 12px PTSans-Regular;
+  padding: 0px 0px 10px;
+  color: #999999;
+}
+.last_cont > ul > li > h4 {
+  color: white;
+}
+@media screen and (max-width: 600px) {
+  .last_cont {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 3%;
+  }
+  .footer-1 {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 2%;
+  }
+}

@@ -1,0 +1,237 @@
+/* nav bar css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: rgb(51, 51, 51);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ul li {
+  list-style: none;
+}
+/*-------------------------*/
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+.dropdown-item:hover {
+  color: orange !important;
+}
+.via {
+  border: 1px solid #969292;
+  border-radius: 10px;
+  height: 20px;
+  width: fit-content;
+  padding: 2px;
+  font-size: 12px;
+  color: #969292;
+  background: white;
+}
+#viaa {
+  font-size: 12px;
+  color: #969292;
+}
+.f2 {
+  width: 72%;
+  background-color: white;
+  border: 1px solid white;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+#inputdiv {
+  box-shadow: 2px 2px 6px 6px rgba(49, 49, 49, 0.1);
+}
+
+/*-------------------------*/
+
+/* <!-- header --> */
+.home-header {
+  position: fixed;
+  z-index: 2;
+  background-color: #fff;
+  text-align: left;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 22px;
+  padding-right: 22px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 0 0 2px rgba(0, 0, 0, 0.05);
+}
+.left-header {
+  display: flex;
+  align-items: center;
+  width: 59%;
+  justify-content: space-between;
+}
+.right-header {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  justify-content: space-between;
+}
+.head-logo {
+  margin: 11px 0 9px;
+}
+.stores-contact a,
+.wishlist-bag-profile a {
+  font-size: 16px;
+  color: rgb(112, 112, 112);
+  font-family: "Open Sans";
+  line-height: normal;
+  display: inline-block;
+  text-decoration: none;
+}
+.all-stores {
+  background-image: url(https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/iconallstore.png);
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  margin-right: 20px;
+}
+.contact-us {
+  background-image: url(https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/iconcontactus.png);
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  margin-right: 20px;
+}
+.search-bar {
+  width: 64%;
+}
+.wishlist-bag-profile {
+  width: 37%;
+}
+.profile-icon img {
+  width: 40px;
+  height: 35px;
+  border-radius: 50%;
+}
+#search-header {
+  width: 175%;
+  font: 14px/22px Open Sans;
+  color: #555;
+  padding: 6px;
+  margin: auto 12px 9px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #bababa;
+  height: 44px;
+}
+@media screen and (max-width: 1200px) {
+  #search-header {
+    display: none;
+  }
+}
+div.signin-div {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 160px;
+  z-index: auto;
+  float: right;
+  border: 1px solid silver;
+  display: none;
+  box-shadow: 0 11px 29px -11px #999;
+  border-radius: 2px 2px 10px 10px;
+}
+div.signin-div h3 > a {
+  margin: 15px auto 10px 10px;
+  cursor: pointer;
+}
+hr {
+  margin: 0;
+}
+a.profile-icon:hover ~ div.signin-div,
+div.signin-div:hover {
+  display: block;
+  background-color: white;
+}
+/* <!-- Header close --> */
+
+/* <!-- Nav bar --> */
+.clear-float {
+  clear: both;
+}
+nav {
+  position: absolute;
+  width: 100%;
+  top: 68px;
+  background-color: #fff;
+  z-index: 1;
+}
+.nav-container {
+  width: fit-content;
+  padding-left: 22px;
+  padding-right: 22px;
+  margin: auto;
+  position: relative;
+}
+span.gt,
+li img {
+  display: block;
+  top: 50px;
+  float: right;
+  padding-right: 30px;
+  margin: auto;
+  width: 25%;
+}
+ul.submenu .submenu li {
+  width: 30%;
+  padding-right: 0;
+}
+.nav-container > ul {
+  width: 100%;
+  width: fit-content;
+  padding-left: 22px;
+  padding-right: 22px;
+  margin: auto;
+}
+.nav-container li {
+  cursor: pointer;
+  text-transform: capitalize !important;
+  list-style: none;
+}
+.nav-container li a {
+  text-decoration: none;
+  padding-left: 20px;
+  color: #333;
+  font: 500 15px/16px Open Sans;
+  padding: 18px 30px 14px;
+  display: block;
+}
+.nav-container li a:hover {
+  color: red;
+  background-color: rgb(245, 245, 245);
+}
+li.topmenu > a:hover {
+  border-bottom: 2px solid red;
+}
+.nav-container ul li.topmenu {
+  float: left;
+}
+.nav-container .topmenu ul {
+  padding-left: 20px;
+  padding-right: 0px;
+  display: none;
+  position: absolute;
+  width: 20%;
+  height: 1000%;
+  background-color: #fff;
+}
+.nav-container li:hover > ul {
+  display: block;
+}
+.nav-container ul.submenu {
+  top: 102%;
+  left: 0;
+  box-shadow: 0 11px 29px -11px #999;
+}
+.nav-container ul.submenu .submenu {
+  top: 0;
+  left: 100%;
+  width: 400%;
+  height: 100%;
+}
+
+/* <!-- nav bar closed --> */
