@@ -521,3 +521,7 @@ border-radius: 9px;
       background-color: white;
   }
 }
+#searchbar{
+  border:none;
+  border-bottom: 1px solid black;
+}
