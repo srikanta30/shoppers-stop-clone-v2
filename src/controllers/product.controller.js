@@ -7,6 +7,7 @@ const crud = require("./crud.controller");
 const Products = require('../models/product.model');
 
 router.post("/", crud.post(Products));
+router.get("/", crud.get(Products));
 router.get("/:id", crud.getOne(Products, "product.ejs"));
 router.get("/:id", crud.getOne(Products));
 router.patch("/:id", crud.updateOne(Products));
