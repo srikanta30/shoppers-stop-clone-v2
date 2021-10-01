@@ -4,7 +4,7 @@ window.addEventListener("load", function(){
     if (localStorage.getItem("currentuser") === null) {
 
         alert("Please Login To Continue!");
-        window.location.href = "sign_in.html"
+        window.location.href = "signin"
     } 
 })
 
