@@ -8,10 +8,10 @@ const userSchema = new mongoose.Schema({
     usermobile : {type:Number,required:true},
     userpassword : {type:String,required:true},
     usergender : {type:String,required:true},
-    useraddress : {type:String,required:true},
-    cart: [{type:mongoose.Schema.Types.ObjectId, ref:"product", required:true}],
-    orders : [{type:mongoose.Schema.Types.ObjectId,ref:"product",required:true}],
-    wishlist : [{type:mongoose.Schema.Types.ObjectId,ref:"product",required:true}]
+    useraddress : {type:String,required:false},
+    cart: [{type:mongoose.Schema.Types.ObjectId, ref:"product", required:false}],
+    orders : [{type:mongoose.Schema.Types.ObjectId,ref:"product",required:false}],
+    wishlist : [{type:mongoose.Schema.Types.ObjectId,ref:"product",required:false}]
 },
 {
     versionKey:false,
