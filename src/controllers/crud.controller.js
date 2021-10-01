@@ -4,7 +4,7 @@ const get = (model, filename = null) => async (req, res) => {
 	try {
 		const items = await model.find({}).lean().exec();
         if (filename) {
-            return res.render(filename, {items});
+            return res.render(filename, {items: items});
         }
 		return res.status(200).send({ items });
 	} catch (err) {
