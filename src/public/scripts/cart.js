@@ -1,18 +1,35 @@
 //Cart Page:
 
 let display = document.getElementById("shoppingbag");
-let cart = JSON.parse(localStorage.getItem("cart"));
 let checkoutbutton = document.getElementById("checkoutbutton");
 
-window.addEventListener("load", displaycart)
 
-function displaycart(){
+window.addEventListener("load", () => {
+    // if (localStorage.getItem("currentuser") === null) {
+
+    //     alert("Please Login To Continue!");
+    //     window.location.href = "signin"
+    // }
+    displaycart();
+})
+
+// let currentuser = localStorage.getItem("currentuser");
+
+async function displaycart(){
+                          //`http://localhost:3000/user/${currentuser}`
+    let res = await fetch ('http://localhost:3000/user/8513938716');
+    let data = await res.json();
+    let cart = data.item[0].cart;
     if (cart.length != 0){
         let count = 0;
         let total = 0;
         display.innerHTML = "";
         display.setAttribute("id", "products");
-        cart.forEach(function(product){
+        cart.forEach(async (pro) => {
+            pro = Number(pro);
+            let res = await fetch(`http://localhost:3000/product/view/${pro}`);
+            let data = await res.json();
+            let product = data.item[0];
             count++
             let div = document.createElement("div");
               let p_name = document.createElement("p");
@@ -30,27 +47,50 @@ function displaycart(){
               total = total + Math.round(product.price - (product.price * product.discount / 100));
               let button = document.createElement("button");
               button.innerText = "REMOVE";
-              let divid = "div" + product.id;
+              button.value = product._id;
+              let divid = "div" + count;
               div.setAttribute("id", divid);
-              button.addEventListener("click", function(){
-                  document.getElementById(divid).remove();
-                  let index = product.id - 1;
-                  if (index > -1) {
-                    cart.splice(index, 1);
+              button.addEventListener("click", async () => {
+                                      //`http://localhost:3000/user/${currentuser}`
+                  let res = await fetch ('http://localhost:3000/user/8513938716');
+                  let data = await res.json();
+
+                  let index = button.value;
+
+                  let updatedcart = [];
+
+                  for (let i = 0 ; i < data.item[0].cart.length; i++){
+                      if (data.item[0].cart[i] == index){
+                        continue;
+                      }
+                      else {
+                          updatedcart.push(data.item[0].cart[i]);
+                      }
                   }
-                  localStorage.setItem("cart", JSON.stringify(cart));
-                  displaycart();
+
+                  document.getElementById(divid).remove();
+
+                  let id = data.item[0]._id;
+                                        //`http://localhost:3000/user/${currentuser}`
+                  let sendres = await fetch(`http://localhost:3000/user/${id}`, {
+                  method: 'PATCH',
+                  body: JSON.stringify({
+                  cart: updatedcart
+                }),
+                headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+                }
+                })
+                let resdata = await sendres.json();
+                
+                displaycart();
 
               })
               div.append(image, p_name, p_description, color, size, p_price, button);
               display.append(div);
               let h2 = document.getElementById("count");
               h2.innerHTML = `Shopping Bag (${count} Items) - <br>TOTAL <div class="rupee">₹ ${total}</div>`
-              localStorage.setItem("carttotal", total);
-              checkoutbutton.innerHTML = `<button onclick="location.href='checkout.html'" id="checkout">PROCEED TO CHECKOUT</button>`
-              
+              checkoutbutton.innerHTML = `<button onclick="location.href='checkout'" id="checkout">PROCEED TO CHECKOUT</button>`
         })
     }
-    
-
 }

@@ -1,14 +1,5 @@
 //Signup Page:
 
-if (localStorage.getItem("myUsers") === null){
-      
-    localStorage.setItem("myUsers", "[]");
-}
-
-let myUsers = localStorage.getItem("myUsers");
-
-myUsers = JSON.parse(myUsers);
-
 let signup_button = document.getElementById("signupbutton");
 signup_button.addEventListener("click", function(){
 
@@ -24,16 +15,43 @@ if (gender_select[i].checked){
 }
 }
 
-    const user = {
-        username: name,
-        useremail: email,
-        usermobile: mobile,
-        userpassword: password,
-        usergender: gender
-    }
-    myUsers.push(user);
+
+fetch(`http://localhost:3000/user/`, {
+    method: 'POST',
+    body: JSON.stringify({
+       username: name,
+       useremail: email,
+       usermobile: mobile,
+       userpassword: password,
+       usergender: gender
     
-    const userdetails_json = JSON.stringify(myUsers);
-    localStorage.setItem("myUsers", userdetails_json);
-    window.location.href = "sendotp.html"
+  }),
+  headers: {
+  'Content-type': 'application/json; charset=UTF-8'
+  }
+  }).then((res) => {
+     
+        
+if (res.status == 400){
+    let error = document.getElementById("message");
+    setTimeout(function(){
+        error.innerText = "User ID Already Exists!";
+    }, 1000);
+}
+
+else {
+window.location.href = "sendotp"
+}
+            
+
+   
+      
+    }).catch((err) => {
+        
+            console.log(err);
+        
+        
+        
+    });
+
 })

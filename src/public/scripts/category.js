@@ -1,16 +1,24 @@
-//Category Page URL: https://www.shoppersstop.com/men-clothing-t-shirts-polos/c-A101010
+//Cloned Category Page URL: https://www.shoppersstop.com/men-clothing-t-shirts-polos/c-A101010
 
-//Product database to store in local storage:
-window.addEventListener('load', function () {
-    let count = JSON.parse(localStorage.getItem('cart')).length;
-    let notify = document.getElementById('lblCartCount');
-    notify.innerText = count;
-  
-    let countw = JSON.parse(localStorage.getItem('wishlist')).length;
-    let notifyw = document.getElementById('lblwishlistCount');
-    notifyw.innerText = countw;
-  
-  })
+//For Getting Cart & Wishlist Count On Header:
+window.addEventListener("load", async () => {
+  // if (localStorage.getItem("currentuser") === null) {
+
+    //     alert("Please Login To Continue!");
+    //     window.location.href = "signin"
+    // }
+    // let currentuser = localStorage.getItem("currentuser");
+                          //`http://localhost:3000/user/${currentuser}`
+  let res = await fetch ('http://localhost:3000/user/8513938716');
+  let data = await res.json();
+  let count = data.item[0].cart.length;
+  let countw = data.item[0].wishlist.length;
+
+  let notify = document.getElementById("lblCartCount");
+  notify.innerText = count;
+  let notifyw = document.getElementById("lblwishlistCount");
+  notifyw.innerText = countw;
+});
 
 
 //Showing the data on page:

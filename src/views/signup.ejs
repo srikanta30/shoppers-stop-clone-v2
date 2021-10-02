@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,13 @@
     <link rel="shortcut icon" type="image/jpg" href="https://prodstatic.shoppersstop.com/_ui/responsive/theme-ssl/images/favicon.ico"/>
     <link rel="stylesheet" href="../public/styles/signup.css">
     <link rel="shortcut icon" type="image/jpg" href="https://prodstatic.shoppersstop.com/_ui/responsive/theme-ssl/images/favicon.ico"/>
+
+    <style>
+        #message {
+            color: red;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header><img onclick="location.href='home'" style="cursor: pointer;" src="https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/sslogo.svg"/>
@@ -16,7 +24,7 @@
     
     <h4>SIGN UP</h4>
     <h5>Create your account on Shoppers Stop:</h5>
-    <form class="sign-up-form">
+    <div class="sign-up-form">
         
         <div class="fullname">
             <input type="text" name="signupFullName" id="signupFullName" maxlength="75" title="Please enter valid First Name &amp; Last Name*" placeholder="First Name &amp; Last Name*">
@@ -40,8 +48,9 @@
             <input type="radio" name="gender" id="men" value="MALE">
             <label for="men">Male</label>
         </div>
-        <button type="submit" class="continue" id="signupbutton" style="cursor: pointer;">CONTINUE</button>
-    </form>
+        <p id="message"></p>
+        <button class="continue" id="signupbutton" style="cursor: pointer;">CONTINUE</button>
+    </div>
     <div style="margin-top: 50px;"></div>
     <hr />
     <div class="loginsocial">Login with social media</div>
@@ -59,5 +68,5 @@
 </body>
 </html>
 
-<!--- Linking script/signup_in.js file --->
+<!--- Linking script/signup.js file --->
 <script src="../public/scripts/signup.js"></script>

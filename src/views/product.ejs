@@ -28,23 +28,23 @@
           <a href="#" class="navcont"><inline><img src="https://image.flaticon.com/icons/png/512/159/159704.png"></inline> Category</a>
       </div>
       <div id="img">
-          <img src="https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/sslogo.svg" id="logo" onclick="location.href='../home'" />
+          <img src="https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/sslogo.svg" id="logo" onclick="location.href='home'" />
       </div>
       <div id="right">
           <input type="search" placeholder="Search your product" id="searchbar"/>
           <div>
-              <button type="button" onclick="location.href='../wishlist'">
+              <button type="button" onclick="location.href='wishlist'">
           <img src="https://static.thenounproject.com/png/1788381-200.png" />
         </button>
               <span class="badgew badge-warningw" id="lblwishlistCount"> </span>
           </div>
           <div>
-              <button type="button" onclick="location.href='../cart'">
+              <button type="button" onclick="location.href='cart'">
           <img src="https://static.thenounproject.com/png/4175872-200.png" />
         </button>
               <span class="badge badge-warning" id="lblCartCount"> </span>
           </div>
-          <button type="button" onclick="location.href='../signin'">
+          <button type="button" onclick="location.href='signin'">
         <img src="https://static.thenounproject.com/png/3465520-200.png" />
       </button>
       </div>
@@ -121,20 +121,9 @@
           <div id="empty"></div>
           <div>
             <div id="empty"></div>
-            <p>select color</p>
+            <p>Color: <%= item[0]["color"] %></p>
             <div id="empty"></div>
-            <img
-              id="colorimg"
-              src="https://sslimages.shoppersstop.com/sys-master/images/h4e/h7e/16536303566878/S21T-01BA-040WH_WHITE.jpg_276Wx400H"
-              style="
-                width: 50px;
-                height: 60px;
-                float: left;
-                border-radius: 5px;
-                border: 1px solid gray;
-              "
-              value="orange"
-            />
+            
             <div id="empty"></div>
           </div>
           <div id="empty"></div>
@@ -149,7 +138,7 @@
             <button type="button" class="sizebtn">XXL</button>
           </div>
           <div id="empty"></div>
-          <button type="button" id="cartbtn">ADD TO BAG</button>
+          <button type="button" id="cartbtn" value = "<%= item[0]["_id"] %>"">ADD TO BAG</button>
           <div id="empty"></div>
           <button type="button" id="wishlistbtn">ADD TO WISHLIST</button>
           <div style="display: flex; flex-direction: row; gap: 5%">
@@ -163,14 +152,14 @@
             <div class="tinycont">
               <inline
                 ><img
-                  src="https://img-premium.flaticon.com/png/512/3796/premium/3796180.png?token=exp=1629873728~hmac=9c0b888af08ab25c490a4e7cd38f9e77"
+                  src="https://cdn-icons-png.flaticon.com/512/411/411776.png"
                   style="width: 30px; height: 30px" /></inline
               >Free shipping
             </div>
             <div class="tinycont">
               <inline
                 ><img
-                  src="https://img-premium.flaticon.com/png/512/4114/premium/4114865.png?token=exp=1629873966~hmac=02c74d238ea471ddd26664d74bdd1826"
+                  src="https://cdn-icons-png.flaticon.com/512/477/477532.png"
                   style="width: 30px; height: 30px" /></inline
               >Express store pick-up
             </div>

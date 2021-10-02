@@ -1,13 +1,29 @@
 
-  window.addEventListener("load", function () {
-    let count = JSON.parse(localStorage.getItem("cart")).length;
+//For Getting Cart & Wishlist Count On Header:
+
+
+window.addEventListener("load", () => {
+  // if (localStorage.getItem("currentuser") === null) {
+
+  //     alert("Please Login To Continue!");
+  //     window.location.href = "signin"
+  // }
+})
+// let currentuser = localStorage.getItem("currentuser");
+  window.addEventListener("load", async () => {
+                          // `http://localhost:3000/user/${currentuser}`
+    let res = await fetch ('http://localhost:3000/user/8513938716');
+    let data = await res.json();
+    let count = data.item[0].cart.length;
+    let countw = data.item[0].wishlist.length;
+
     let notify = document.getElementById("lblCartCount");
     notify.innerText = count;
-
-    let countw = JSON.parse(localStorage.getItem("wishlist")).length;
     let notifyw = document.getElementById("lblwishlistCount");
     notifyw.innerText = countw;
   });
+
+  //For Checking Size:
 
   var sizebtn = document.getElementsByClassName("sizebtn");
   var btnid = document.getElementById("forbutton");
@@ -31,6 +47,8 @@
       }
     });
   }
+
+  //For Checking Delivery Options:
 
   function checkdelivery() {
     let btnD = document.getElementById("deliverybtn");
@@ -56,6 +74,8 @@
   }
   checkdelivery();
 
+  //For Collabsible Div:
+
   var coll = document.getElementsByClassName("collapsible");
   var i;
 
@@ -71,32 +91,35 @@
     });
   }
 
-  if (localStorage.getItem("cart") === null) {
-    localStorage.setItem("cart", "[]");
-  }
-  let myTshirts = localStorage.getItem("myTshirts");
-
-  myTshirts = JSON.parse(myTshirts);
+  //For Adding Products To Cart:
 
   let crtbtn = document.getElementById("cartbtn");
 
-  crtbtn.onclick = function () {
-    let count = JSON.parse(localStorage.getItem("cart")).length;
-    let tshirts = undefined;
-    myTshirts.forEach(function (product, n) {
-      if (n == 0) {
-        tshirts = product;
-      }
-    });
+  crtbtn.onclick = async () => {
+                           //`http://localhost:3000/user/${currentuser}`
+    let res = await fetch ('http://localhost:3000/user/8513938716');
+    let data = await res.json();
+    data.item[0].cart.push(crtbtn.value);
+    let updatedcart = data.item[0].cart;
+    let id = data.item[0]._id;
+                            //`http://localhost:3000/user/${currentuser}`
+    let sendres = await fetch(`http://localhost:3000/user/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+    cart: updatedcart
+    }),
+    headers: {
+   'Content-type': 'application/json; charset=UTF-8'
+   }
+  })
+   let resdata = await sendres.json();
+  
+   let count = resdata.item.cart.length;
 
+   
+  
     let notify = document.getElementById("lblCartCount");
-    count++;
     notify.innerText = count;
-
-    cart = JSON.parse(localStorage.getItem("cart"));
-
-    cart.push(tshirts);
-    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   // Get the modal
@@ -118,29 +141,31 @@
     modal.style.display = "none";
   };
 
-  // wichlist function
-
-  if (localStorage.getItem("wishlist") === null) {
-    localStorage.setItem("wishlist", "[]");
-  }
+  // Wishlist:
 
   let wishbtn = document.getElementById("wishlistbtn");
 
-  wishbtn.onclick = function () {
-    let countw = JSON.parse(localStorage.getItem("wishlist")).length;
-    let tshirts = undefined;
-    myTshirts.forEach(function (product, n) {
-      if (n == 0) {
-        tshirts = product;
-      }
-    });
+  wishbtn.onclick = async () => {
+                          //`http://localhost:3000/user/${currentuser}`
+    let res = await fetch ('http://localhost:3000/user/8513938716');
+    let data = await res.json();
+    data.item[0].wishlist.push(crtbtn.value);
+    let updatedwishlist = data.item[0].wishlist;
+    let id = data.item[0]._id;
+                          //`http://localhost:3000/user/${currentuser}`
+    let sendres = await fetch(`http://localhost:3000/user/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+    wishlist: updatedwishlist
+    }),
+    headers: {
+   'Content-type': 'application/json; charset=UTF-8'
+   }
+  })
+   let resdata = await sendres.json();
 
+    let countw = resdata.item.wishlist.length;
     let notifyw = document.getElementById("lblwishlistCount");
-    countw++;
     notifyw.innerText = countw;
-
-    wishlist = JSON.parse(localStorage.getItem("wishlist"));
-
-    wishlist.push(tshirts);
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    
   };

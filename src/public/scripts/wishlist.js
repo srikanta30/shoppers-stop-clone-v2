@@ -1,17 +1,36 @@
 //Wishlist Page:
 
 let display = document.getElementById("shoppingbag");
-let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+//let wishlist = JSON.parse(localStorage.getItem("wishlist"));
 let checkoutbutton = document.getElementById("checkoutbutton");
 
-window.addEventListener("load", displaywishlist)
+window.addEventListener("load", () => {
+    // if (localStorage.getItem("currentuser") === null) {
 
-function displaywishlist(){
+    //     alert("Please Login To Continue!");
+    //     window.location.href = "signin"
+    // }
+    displaywishlist();
+})
+
+async function displaywishlist(){
+
+                           //`http://localhost:3000/user/${currentuser}`
+      let res = await fetch ('http://localhost:3000/user/8513938716');
+      let data = await res.json();
+      let wishlist = data.item[0].wishlist;
     if (wishlist.length != 0){
         let count = 0;
         display.innerHTML = "";
         display.setAttribute("id", "products");
-        wishlist.forEach(function(product){
+
+
+        wishlist.forEach(async (pro) => {
+            pro = Number(pro);
+            let res = await fetch(`http://localhost:3000/product/view/${pro}`);
+            let data = await res.json();
+            let product = data.item[0];
+        
             count++
             let div = document.createElement("div");
               let p_name = document.createElement("p");
@@ -26,23 +45,50 @@ function displaywishlist(){
               p_price.innerHTML = `<div class="price rupee">₹ ${Math.round(product.price - (product.price * product.discount / 100))} <p class="strike">MRP ${product.price}</p></div> <p class="discount">(${product.discount}% OFF)</p>`;
               let button = document.createElement("button");
               button.innerText = "REMOVE";
-              let divid = "div" + product.id;
+              button.value = product._id;
+              let divid = "div" + count;
               div.setAttribute("id", divid);
-              button.addEventListener("click", function(){
-                  document.getElementById(divid).remove();
-                  let index = product.id - 1;
-                  if (index > -1) {
-                    wishlist.splice(index, 1);
-                  }
-                  localStorage.setItem("wishlist", JSON.stringify(wishlist));
-                  displaywishlist();
+            button.addEventListener("click", async () => {
+                //`http://localhost:3000/user/${currentuser}`
+let res = await fetch ('http://localhost:3000/user/8513938716');
+let data = await res.json();
 
-              })
+let index = button.value;
+
+let updatedwishlist = [];
+
+for (let i = 0 ; i < data.item[0].wishlist.length; i++){
+if (data.item[0].wishlist[i] == index){
+  continue;
+}
+else {
+    updatedwishlist.push(data.item[0].wishlist[i]);
+}
+}
+
+document.getElementById(divid).remove();
+
+let id = data.item[0]._id;
+                  //`http://localhost:3000/user/${currentuser}`
+let sendres = await fetch(`http://localhost:3000/user/${id}`, {
+method: 'PATCH',
+body: JSON.stringify({
+wishlist: updatedwishlist
+}),
+headers: {
+'Content-type': 'application/json; charset=UTF-8'
+}
+})
+let resdata = await sendres.json();
+
+displaywishlist();
+
+})
               div.append(image, p_name, p_description, color, p_price, button);
               display.append(div);
               let h2 = document.getElementById("count");
               h2.innerHTML = `Your Wishlist (${count} Items)`
-              checkoutbutton.innerHTML = `<button onclick="location.href='category.html'" id="checkout">CONTINUE SHOPPING</button>`
+              checkoutbutton.innerHTML = `<button onclick="location.href='category'" id="checkout">CONTINUE SHOPPING</button>`
               
         })
     }

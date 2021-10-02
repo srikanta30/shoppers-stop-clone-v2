@@ -27,14 +27,6 @@ router.get("/signin", async (req, res) => {
 	}
 });
 
-router.get("/signinwithotp", async (req, res) => {
-	try {
-		res.render("signinwithotp.ejs");
-	} catch (err) {
-		return res.status(400).json({ err: err.message });
-	}
-});
-
 router.get("/signup", async (req, res) => {
 	try {
 		res.render("signup.ejs");

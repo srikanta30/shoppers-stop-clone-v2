@@ -6,10 +6,27 @@ const crud = require("./crud.controller");
 
 const User = require('../models/user.model');
 
-router.post("/", crud.post(User));
+router.post("/", async (req, res) => {
+	try {
+		const item = await User.create(req.body);
+		return res.status(201).send({item});
+	} catch (err) {
+		return res.status(400).send({ err });
+	}
+});
+
+ 
+
 router.get("/", crud.get(User));
-router.get("/:id", crud.getOne(User));
+router.get("/:id", async (req, res) => {
+    try {
+		const item = await User.find({ usermobile: req.params.id }).lean().exec();
+		return res.status(200).send({ item });
+	} catch (err) {
+		return res.status(400).send({ err });
+	}
+})
+
 router.patch("/:id", crud.updateOne(User));
-router.delete("/:id", crud.deleteOne(User));
 
 module.exports = router;

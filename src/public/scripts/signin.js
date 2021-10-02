@@ -14,7 +14,7 @@ signinbutton.addEventListener("click", function(){
         
     if ((user.useremail == signinemail.value || user.usermobile == signinemail.value) && user.userpassword == signinpassword.value){
 
-    window.location.href = "checkout.html"
+    window.location.href = "checkout"
     let currentuser = user.usermobile;
     localStorage.setItem("currentuser", currentuser);
 

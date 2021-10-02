@@ -3,5 +3,5 @@
 window.addEventListener("load", function(){
     this.setTimeout(function(){
         window.location.href = "successful";
-    }, 4000)
+    }, 2000)
 })
