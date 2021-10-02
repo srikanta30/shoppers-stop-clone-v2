@@ -14,13 +14,12 @@ router.post("/", async (req, res) => {
 		return res.status(400).send({ err });
 	}
 });
-
  
 
 router.get("/", crud.get(User));
 router.get("/:id", async (req, res) => {
     try {
-		const item = await User.find({ usermobile: req.params.id }).lean().exec();
+		const item = await User.find({ _id: req.params.id }).lean().exec();
 		return res.status(200).send({ item });
 	} catch (err) {
 		return res.status(400).send({ err });

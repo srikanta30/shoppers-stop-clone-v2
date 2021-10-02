@@ -1,28 +1,42 @@
 //Sign In Page:
 
-let myUsers = localStorage.getItem("myUsers");
-
-myUsers = JSON.parse(myUsers);
-
 let signinemail = document.getElementById("signupemail");
 let signinpassword = document.getElementById("signupPassword");
-let error = document.getElementById("message");
 let signinbutton = document.getElementById("signinbutton");
 
 signinbutton.addEventListener("click", function(){
-    myUsers.forEach(function(user){
+
+    fetch(`http://localhost:3000/user/`, { method: 'get' }).then(res => {
+     
+res = res.json();        
+return res;
+      
+    }).then(data => {
+
+        let myUsers = data.items;
+    
+myUsers.forEach(function(user){
         
     if ((user.useremail == signinemail.value || user.usermobile == signinemail.value) && user.userpassword == signinpassword.value){
 
     window.location.href = "checkout"
-    let currentuser = user.usermobile;
+    let currentuser = user._id;
     localStorage.setItem("currentuser", currentuser);
 
     }
     })
     setTimeout(function(){
-        error.innerText = "Invalid Email or Password";
-    }, 3000);
+        let error = document.getElementById("message");
+        error.innerText = "Invalid Email or Password!";
+    }, 1000);
+    
+    
+    
+    }).catch((err) => {
+            console.log(err);
+    });
+
+    
     
 })
 

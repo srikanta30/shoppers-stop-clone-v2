@@ -10,7 +10,7 @@ window.addEventListener("load", function(){
 
 window.addEventListener("load", function(){
     let total = document.getElementById("total");
-    let carttotal = localStorage.getItem("carttotal");
+    
     total.innerText = `₹${carttotal}`;
     let subtotal = document.getElementById("subtotal");
     subtotal.innerText = `₹${carttotal}`;
@@ -23,8 +23,8 @@ window.addEventListener("load", function(){
 
 
 window.addEventListener("load", function(){
-    let myUsers = localStorage.getItem("myUsers");
-myUsers = JSON.parse(myUsers);
+//     let myUsers = localStorage.getItem("myUsers");
+// myUsers = JSON.parse(myUsers);
 
 let currentuser = localStorage.getItem("currentuser");
     myUsers.forEach(function(user){
@@ -56,15 +56,15 @@ window.addEventListener("load", function(){
         }
 
     else {
-        myUsers.forEach(function(user){
+        // myUsers.forEach(function(user){
             
-            if (user.usermobile == currentuser){
-            user["useraddress"] = address; 
+        //     if (user.usermobile == currentuser){
+        //     user["useraddress"] = address; 
             
-            }
-            })
-            localStorage.setItem("myUsers" , JSON.stringify(myUsers));
-            window.location.href = "payment.html";
+        //     }
+        //     })
+        //     localStorage.setItem("myUsers" , JSON.stringify(myUsers));
+            window.location.href = "payment";
     }
             
         

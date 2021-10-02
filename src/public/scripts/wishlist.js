@@ -1,22 +1,23 @@
 //Wishlist Page:
 
 let display = document.getElementById("shoppingbag");
-//let wishlist = JSON.parse(localStorage.getItem("wishlist"));
 let checkoutbutton = document.getElementById("checkoutbutton");
 
 window.addEventListener("load", () => {
-    // if (localStorage.getItem("currentuser") === null) {
+    if (localStorage.getItem("currentuser") === null) {
 
-    //     alert("Please Login To Continue!");
-    //     window.location.href = "signin"
-    // }
+        alert("Please Login To Continue!");
+        window.location.href = "signin"
+    }
     displaywishlist();
 })
 
+let currentuser = localStorage.getItem("currentuser");
+
 async function displaywishlist(){
 
-                           //`http://localhost:3000/user/${currentuser}`
-      let res = await fetch ('http://localhost:3000/user/8513938716');
+                   
+      let res = await fetch (`http://localhost:3000/user/${currentuser}`);
       let data = await res.json();
       let wishlist = data.item[0].wishlist;
     if (wishlist.length != 0){
@@ -49,8 +50,8 @@ async function displaywishlist(){
               let divid = "div" + count;
               div.setAttribute("id", divid);
             button.addEventListener("click", async () => {
-                //`http://localhost:3000/user/${currentuser}`
-let res = await fetch ('http://localhost:3000/user/8513938716');
+              
+let res = await fetch (`http://localhost:3000/user/${currentuser}`);
 let data = await res.json();
 
 let index = button.value;
@@ -69,8 +70,8 @@ else {
 document.getElementById(divid).remove();
 
 let id = data.item[0]._id;
-                  //`http://localhost:3000/user/${currentuser}`
-let sendres = await fetch(`http://localhost:3000/user/${id}`, {
+                  
+let sendres = await fetch(`http://localhost:3000/user/${currentuser}`, {
 method: 'PATCH',
 body: JSON.stringify({
 wishlist: updatedwishlist

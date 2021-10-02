@@ -2,14 +2,14 @@
 
 //For Getting Cart & Wishlist Count On Header:
 window.addEventListener("load", async () => {
-  // if (localStorage.getItem("currentuser") === null) {
+  if (localStorage.getItem("currentuser") === null) {
 
-    //     alert("Please Login To Continue!");
-    //     window.location.href = "signin"
-    // }
-    // let currentuser = localStorage.getItem("currentuser");
-                          //`http://localhost:3000/user/${currentuser}`
-  let res = await fetch ('http://localhost:3000/user/8513938716');
+        alert("Please Login To Continue!");
+        window.location.href = "signin"
+    }
+    let currentuser = localStorage.getItem("currentuser");
+                   
+  let res = await fetch (`http://localhost:3000/user/${currentuser}`);
   let data = await res.json();
   let count = data.item[0].cart.length;
   let countw = data.item[0].wishlist.length;
