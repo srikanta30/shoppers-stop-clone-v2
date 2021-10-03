@@ -19,7 +19,7 @@ myUsers.forEach(function(user){
         
     if ((user.useremail == signinemail.value || user.usermobile == signinemail.value) && user.userpassword == signinpassword.value){
 
-    window.location.href = "checkout"
+    window.location.href = "/"
     let currentuser = user._id;
     localStorage.setItem("currentuser", currentuser);
 
