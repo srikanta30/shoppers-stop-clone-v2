@@ -72,7 +72,7 @@ paypal.Buttons({
 
 window.addEventListener("load", function(){
     let applypromo = document.getElementById("applyapomo");
-    applypromo.addEventListener("click", function(){
+    applypromo.addEventListener("click", async function(){
         let promo = document.getElementById("promo").value;
         if (promo == "masai30"){
             alert("Discount Applied!");
