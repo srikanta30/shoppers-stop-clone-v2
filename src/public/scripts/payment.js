@@ -7,17 +7,40 @@ window.addEventListener("load", function(){
     } 
 })
 
-window.addEventListener("load", function(){
-    let total = document.getElementById("total");
-    let carttotal = localStorage.getItem("carttotal");
-    total.style.fontFamily = "Verdana";
-    total.innerHTML = `Payable Amount: ₹${carttotal}`;
+let currentuser = localStorage.getItem("currentuser");
+
+window.addEventListener("load", async function(){
+
+    let res = await fetch (`http://localhost:3000/user/${currentuser}`);
+    let data = await res.json();
+    let cart = data.item[0].cart;
+    let carttotal = 0;
+
+    cart.forEach(async (pro) => {
+        pro = Number(pro);
+        let res = await fetch(`http://localhost:3000/product/view/${pro}`);
+        let data = await res.json();
+        let product = data.item[0];
+        carttotal = carttotal + Math.round(product.price - (product.price * product.discount / 100));
+        let total = document.getElementById("total");
+        total.style.fontFamily = "Verdana";
+    total.innerText = `₹${carttotal}`;
     let subtotal = document.getElementById("subtotal");
     subtotal.innerText = `₹${carttotal}`;
+
+    
     let payableamount = document.getElementById("payableamount");
             payableamount.textContent = `₹${carttotal}`;
             let totaldiscount = document.getElementById("totaldiscount");
             totaldiscount.textContent = "₹0";
+
+    })
+    
+    let email = document.getElementById("displayemail");
+    email.innerHTML = data.item[0].useremail;
+
+  
+
 })
 
 window.addEventListener("load", function(){

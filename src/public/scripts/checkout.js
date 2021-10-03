@@ -8,47 +8,47 @@ window.addEventListener("load", function(){
     } 
 })
 
-window.addEventListener("load", function(){
-    let total = document.getElementById("total");
+let currentuser = localStorage.getItem("currentuser");
+
+window.addEventListener("load", async function(){
     
+    //Calculate carttotal & user email:
+
+    let res = await fetch (`http://localhost:3000/user/${currentuser}`);
+    let data = await res.json();
+    let cart = data.item[0].cart;
+    let carttotal = 0;
+
+    cart.forEach(async (pro) => {
+        pro = Number(pro);
+        let res = await fetch(`http://localhost:3000/product/view/${pro}`);
+        let data = await res.json();
+        let product = data.item[0];
+        carttotal = carttotal + Math.round(product.price - (product.price * product.discount / 100));
+        let total = document.getElementById("total");
     total.innerText = `₹${carttotal}`;
     let subtotal = document.getElementById("subtotal");
     subtotal.innerText = `₹${carttotal}`;
     let youhavesaved = document.getElementById("youhavesaved");
     youhavesaved.innerText = `₹${carttotal}`;
-})
-
-
-
-
-
-window.addEventListener("load", function(){
-//     let myUsers = localStorage.getItem("myUsers");
-// myUsers = JSON.parse(myUsers);
-
-let currentuser = localStorage.getItem("currentuser");
-    myUsers.forEach(function(user){
-        
-        if (user.usermobile == currentuser){
-        let email = document.getElementById("displayemail");
-        email.innerHTML = user.useremail;
+    })
     
-        }
-        })
+    let email = document.getElementById("displayemail");
+    email.innerHTML = data.item[0].useremail;
 })
+
 window.addEventListener("load", function(){
+
     let savebutton = document.getElementById("save");
     savebutton.addEventListener("click", function(e){
-        let firstname = document.getElementById("firstname");
+    let firstname = document.getElementById("firstname");
     let lastname = document.getElementById("lastname");
     let phone = document.getElementById("phone");
     let pin = document.getElementById("pin");
     let city = document.getElementById("city");
     let address1 = document.getElementById("address1");
     let address2 = document.getElementById("address2");
-    let myUsers = localStorage.getItem("myUsers");
-    myUsers = JSON.parse(myUsers);
-    let currentuser = localStorage.getItem("currentuser");
+
     let address = firstname.value + " " + lastname.value + " , Phone: " + phone.value + ", City: " + city.value + " , Address: " + address1.value + " , " + address2.value;
         
     if (firstname.value == "" || lastname.value == "" || phone.value == "" || city.value == "" || address1.value == ""){
@@ -56,14 +56,17 @@ window.addEventListener("load", function(){
         }
 
     else {
-        // myUsers.forEach(function(user){
-            
-        //     if (user.usermobile == currentuser){
-        //     user["useraddress"] = address; 
-            
-        //     }
-        //     })
-        //     localStorage.setItem("myUsers" , JSON.stringify(myUsers));
+    
+    fetch(`http://localhost:3000/user/${currentuser}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+    useraddress: address
+    }),
+    headers: {
+   'Content-type': 'application/json; charset=UTF-8'
+   }
+  }).then((res) => {return res.json()}).then((data) =>{return data;}).catch((err)=> {return err;})
+
             window.location.href = "payment";
     }
             

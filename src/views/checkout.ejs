@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="checkout.js"></script>
     <link rel="stylesheet" href="../public/styles/checkout.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout | Shoppersstop.com</title>
@@ -17,7 +16,7 @@
 <body>
     <!--head part1 start-->
     <div id="heading">
-        <img class="heading" onclick="location.href='home'"  src="https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/sslogo.svg">
+        <img class="heading" onclick="location.href='/'"  src="https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/sslogo.svg">
         <div id="etho" >
         <i class="fas fa-shield-alt" ></i>
         <p >SECURE TRANSACTION</p>
@@ -30,7 +29,7 @@
      <div id="heading2">
 <h3 id="hacko" >CHECKOUT</h3>
 <i class="fas fa-lock"></i> 
-<p>VIEW BAG</p>   
+<p onclick="location.href='/cart'" style="cursor: pointer;">VIEW BAG</p>   
 </div>
 <div class="clear"></div>
 <hr/>
@@ -65,18 +64,18 @@
     <h4 style="font-family: PTSans-Regular - 700;margin-left: 2%;font-size: 18px;">Add New Address</h4>
 
     <!---------------------------------------------HERE------------------------------------------------------------>
-<input id="firstname" type="text" placeholder="First Name"><input id="lastname" type="text" placeholder="Last Name">
+<input id="firstname" type="text" placeholder="First Name" autocomplete="on"><input id="lastname" type="text" placeholder="Last Name" autocomplete="on">
 <br/>
-<input id="ppp" type="text" placeholder="+91"  value="+91">
-<input id="phone" type="tel"  placeholder="Phone Number">
+<input id="ppp" type="text" placeholder="+91"  value="+91" autocomplete="on">
+<input id="phone" type="tel"  placeholder="Phone Number" autocomplete="on">
 <br/>
-<input id="pin" type="text" placeholder="Pincode" >
+<input id="pin" type="text" placeholder="Pincode" autocomplete="on">
 <br/>
-<input id="city" type="text" placeholder="CITY" ><input type="text" id="stt" placeholder="STATE" >
+<input id="city" type="text" placeholder="CITY" autocomplete="on"><input type="text" id="stt" placeholder="STATE" autocomplete="on" >
 <br/>
-<input id="address1" type="text" placeholder="Address1" >
+<input id="address1" type="text" placeholder="Address1" autocomplete="on" >
 <br/>
-<input id="address2" type="text" placeholder="Address2(optional)" >
+<input id="address2" type="text" placeholder="Address2(optional)" autocomplete="on">
 <br/>
  <!---------------------------------------------HERE------------------------------------------------------------>
 <input id="checkbox1" type="checkbox" ><p id="banng">Use this as my default delivery address</p>
