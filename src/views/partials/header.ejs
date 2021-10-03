@@ -9,17 +9,21 @@
         ></script>
 
         <script>
-          let logout = document.getElementById('logout');
+          
           window.addEventListener('load', ()=> {
+            let logout = document.getElementById('logout');
             if (localStorage.getItem("currentuser" != null)){
-              logout.innerHTML = "LOG OUT";
+              logout.textContent = "LOG OUT";
               logout.href = "/";
-            }
-          })
-           logout.addEventListener("click", () => {
+
+              logout.addEventListener("click", () => {
           localStorage.removeItem("currentuser");
             window.location.href = '/';
          });
+
+            }
+          })
+           
         </script>
 
         <style>
