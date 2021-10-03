@@ -35,7 +35,7 @@ window.addEventListener('load', async() => {
 
 let logout = document.getElementById('logout');
 logout.onclick = () => {
-    localStorage.setItem("currentuser", null);
+    localStorage.removeItem("currentuser");
     window.location.href = '/';
 }
 
