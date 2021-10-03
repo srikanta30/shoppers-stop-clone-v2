@@ -51,6 +51,14 @@ router.get("/processing", async (req, res) => {
 	}
 });
 
+router.get("/myorders", async (req, res) => {
+	try {
+		res.render("myorders.ejs");
+	} catch (err) {
+		return res.status(400).json({ err: err.message });
+	}
+});
+
 
 
 module.exports = router;
