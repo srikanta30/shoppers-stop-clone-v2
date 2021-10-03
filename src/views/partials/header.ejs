@@ -16,10 +16,10 @@
               logout.href = "/";
             }
           })
-           logout.onclick = () => {
+           logout.addEventListener("click", () => {
           localStorage.removeItem("currentuser");
             window.location.href = '/';
-         }
+         });
         </script>
 
         <style>
