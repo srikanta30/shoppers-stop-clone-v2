@@ -7,6 +7,20 @@
           src="https://kit.fontawesome.com/a72892e0d8.js"
           crossorigin="anonymous"
         ></script>
+
+        <script>
+          let logout = document.getElementById('logout');
+          window.addEventListener('load', ()=> {
+            if (localStorage.getItem("currentuser" != null)){
+              logout.innerText = "LOG OUT";
+            }
+          })
+           logout.onclick = () => {
+          localStorage.removeItem("currentuser");
+            window.location.href = '/';
+         }
+        </script>
+
         <style>
           .dropdown:hover .dropdown-menu {
         display: block;
@@ -67,7 +81,7 @@
                />
              </a>
              <div class="signin-div">
-               <h3 class="h31" id="si2"><a href="signin">SIGN IN</a></h3>
+               <h3 class="h31" id="si2"><a href="signin" id="logout">SIGN IN</a></h3>
                <hr />
                <h3 id="su1"><a href="signup">SIGN UP</a></h3>
              </div>
