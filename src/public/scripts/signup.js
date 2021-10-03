@@ -16,7 +16,7 @@ if (gender_select[i].checked){
 }
 
 
-fetch(`http://localhost:3000/user/`, {
+fetch(`http://localhost:5000/user/`, {
     method: 'POST',
     body: JSON.stringify({
        username: name,

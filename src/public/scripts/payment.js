@@ -11,14 +11,14 @@ let currentuser = localStorage.getItem("currentuser");
 
 window.addEventListener("load", async function(){
 
-    let res = await fetch (`http://localhost:3000/user/${currentuser}`);
+    let res = await fetch (`http://localhost:5000/user/${currentuser}`);
     let data = await res.json();
     let cart = data.item[0].cart;
     let carttotal = 0;
 
     cart.forEach(async (pro) => {
         pro = Number(pro);
-        let res = await fetch(`http://localhost:3000/product/view/${pro}`);
+        let res = await fetch(`http://localhost:5000/product/view/${pro}`);
         let data = await res.json();
         let product = data.item[0];
         carttotal = carttotal + Math.round(product.price - (product.price * product.discount / 100));

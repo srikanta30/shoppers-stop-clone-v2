@@ -46,10 +46,10 @@ app.use("/wishlist", wishlistController);
 
 
 //For Server:
-app.listen(process.env.PORT || 3000, async () => {
+app.listen(5000, async () => {
 try {
  await connect();
- console.log("Listening On Port 3000...");
+ console.log("Listening On Port 5000...");
  }
 catch (err) {
  console.log(`Error! Database Not Connected.`);
