@@ -46,7 +46,7 @@ app.use("/wishlist", wishlistController);
 
 
 //For Server:
-app.listen(3000, async () => {
+app.listen(process.env.PORT || 3000, async () => {
 try {
  await connect();
  console.log("Listening On Port 3000...");
