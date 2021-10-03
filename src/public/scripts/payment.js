@@ -159,7 +159,7 @@ window.addEventListener("load", function(){
             alert("Invalid Card Details!");
         }
         else {
-            window.location.href = "orderprocessing";
+            window.location.href = "processing";
         }
     })
 
