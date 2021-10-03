@@ -31,6 +31,7 @@ window.addEventListener("load", async function(){
     
     let payableamount = document.getElementById("payableamount");
             payableamount.textContent = `₹${carttotal}`;
+            payableamount.value = carttotal;
             let totaldiscount = document.getElementById("totaldiscount");
             totaldiscount.textContent = "₹0";
 
@@ -43,89 +44,79 @@ window.addEventListener("load", async function(){
 
 })
 
-window.addEventListener("load", function(){
-    let applypromo = document.getElementById("applyapomo");
-    applypromo.addEventListener("click", function(){
-        let promo = document.getElementById("promo").value;
-        if (promo == "masai30"){
-            alert("Discount Applied!");
-            let carttotal = localStorage.getItem("carttotal");
-            let discount = Math.round(carttotal * .30)
-            carttotal = Math.round(carttotal * .70);
-            let total = document.getElementById("total");
-            total.innerHTML = `Payable Amount: ₹${carttotal}`;
-            let coupon = document.getElementById("coupon");
-            coupon.textContent = "30%";
-            let payableamount = document.getElementById("payableamount");
-            payableamount.textContent = `₹${carttotal}`;
-            let totaldiscount = document.getElementById("totaldiscount");
-            totaldiscount.textContent = `₹${discount}`;
+paypal.Buttons({
+
+    // Sets up the transaction when a payment button is clicked
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: document.getElementById('payableamount').value // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+          }
+        }]
+      });
+    },
+
+    // Finalize the transaction after payer approval
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(orderData) {
+        // Successful capture! For dev/demo purposes:
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            var transaction = orderData.purchase_units[0].payments.captures[0];
+            // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+            actions.redirect('processing');
+
+        // When ready to go live, remove the alert and show a success message within this page. For example:
+        // let element = document.getElementById('paypal');
+        // element.innerHTML = '';
+        // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+        // Or go to another URL:  actions.redirect('processing');
+      });
+    }
+  }).render('#paypal');
+
+// window.addEventListener("load", function(){
+//     let applypromo = document.getElementById("applyapomo");
+//     applypromo.addEventListener("click", function(){
+//         let promo = document.getElementById("promo").value;
+//         if (promo == "masai30"){
+//             alert("Discount Applied!");
+//             let carttotal = localStorage.getItem("carttotal");
+//             let discount = Math.round(carttotal * .30)
+//             carttotal = Math.round(carttotal * .70);
+//             let total = document.getElementById("total");
+//             total.innerHTML = `Payable Amount: ₹${carttotal}`;
+//             let coupon = document.getElementById("coupon");
+//             coupon.textContent = "30%";
+//             let payableamount = document.getElementById("payableamount");
+//             payableamount.textContent = `₹${carttotal}`;
+//             let totaldiscount = document.getElementById("totaldiscount");
+//             totaldiscount.textContent = `₹${discount}`;
 
 
-        }
-        else {
-            alert("Coupon Code Not Valid!");
-        }
+//         }
+//         else {
+//             alert("Coupon Code Not Valid!");
+//         }
         
-    })
-})
-
-
-window.addEventListener("load", function(){
-    let proceedtocheckout = document.getElementById("proceedtocheckout");
-    proceedtocheckout.addEventListener("click", function(){
-        let cvv = document.getElementById("cvv").value;
-        let cardnumber = document.getElementById("cardnumber").value;
-        if (cardnumber == "" || cvv == ""){
-            alert("Invalid Card Details");
-        }
-        else {
-            window.location.href = "orderprocessing";
-        }
-    })
-
-})
+//     })
+// })
 
 
 
 
+// window.addEventListener("load", function(){
+//     let proceedtocheckout = document.getElementById("proceedtocheckout");
+//     proceedtocheckout.addEventListener("click", function(){
+//         let cvv = document.getElementById("cvv").value;
+//         let cardnumber = document.getElementById("cardnumber").value;
+//         if (cardnumber == "" || cvv == ""){
+//             alert("Invalid Card Details");
+//         }
+//         else {
+//             window.location.href = "orderprocessing";
+//         }
+//     })
 
-window.addEventListener("load", function(){
-    let myUsers = localStorage.getItem("myUsers");
-myUsers = JSON.parse(myUsers);
+// })
 
-let currentuser = localStorage.getItem("currentuser");
-    myUsers.forEach(function(user){
-        
-        if (user.usermobile == currentuser){
-        let email = document.getElementById("displayemail");
-        email.innerHTML = user.useremail;
-    
-        }
-        })
-})
-window.addEventListener("load", function(){
-    let savebutton = document.getElementById("save");
-    savebutton.addEventListener("click", function(e){
-        let firstname = document.getElementById("firstname");
-    let lastname = document.getElementById("lastname");
-    let phone = document.getElementById("phone");
-    let pin = document.getElementById("pin");
-    let city = document.getElementById("city");
-    let address1 = document.getElementById("address1");
-    let address2 = document.getElementById("address2");
-    let myUsers = localStorage.getItem("myUsers");
-    myUsers = JSON.parse(myUsers);
-    let currentuser = localStorage.getItem("currentuser");
-        let address = firstname.value + " " + lastname.value + " , Phone: " + phone.value + ", City: " + city.value + " , Address: " + address1.value + " , " + address2.value;
-        myUsers.forEach(function(user){
-            
-            if (user.usermobile == currentuser){
-            user["useraddress"] = address; 
-            
-            }
-            })
-            localStorage.setItem("myUsers" , JSON.stringify(myUsers));
-            window.location.href = "payment.html";
-    })
-})
