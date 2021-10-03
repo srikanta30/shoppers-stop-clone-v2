@@ -6,7 +6,7 @@ let signinbutton = document.getElementById("signinbutton");
 
 signinbutton.addEventListener("click", function(){
 
-    fetch(`http://localhost:${process.env.PORT}/user/`, { method: 'get' }).then(res => {
+    fetch(`http://localhost:5000/user/`, { method: 'get' }).then(res => {
      
 res = res.json();        
 return res;
