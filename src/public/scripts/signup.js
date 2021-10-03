@@ -16,7 +16,7 @@ if (gender_select[i].checked){
 }
 
 
-fetch(`http://localhost:5000/user/`, {
+fetch(`https://shoppers-stop-com.herokuapp.com/user/`, {
     method: 'POST',
     body: JSON.stringify({
        username: name,

@@ -17,7 +17,7 @@ let currentuser = localStorage.getItem("currentuser");
 async function displaywishlist(){
 
                    
-      let res = await fetch (`http://localhost:5000/user/${currentuser}`);
+      let res = await fetch (`https://shoppers-stop-com.herokuapp.com/user/${currentuser}`);
       let data = await res.json();
       let wishlist = data.item[0].wishlist;
     if (wishlist.length != 0){
@@ -28,7 +28,7 @@ async function displaywishlist(){
 
         wishlist.forEach(async (pro) => {
             pro = Number(pro);
-            let res = await fetch(`http://localhost:5000/product/view/${pro}`);
+            let res = await fetch(`https://shoppers-stop-com.herokuapp.com/product/view/${pro}`);
             let data = await res.json();
             let product = data.item[0];
         
@@ -51,7 +51,7 @@ async function displaywishlist(){
               div.setAttribute("id", divid);
             button.addEventListener("click", async () => {
               
-let res = await fetch (`http://localhost:5000/user/${currentuser}`);
+let res = await fetch (`https://shoppers-stop-com.herokuapp.com/user/${currentuser}`);
 let data = await res.json();
 
 let index = button.value;
@@ -71,7 +71,7 @@ document.getElementById(divid).remove();
 
 let id = data.item[0]._id;
                   
-let sendres = await fetch(`http://localhost:5000/user/${currentuser}`, {
+let sendres = await fetch(`https://shoppers-stop-com.herokuapp.com/user/${currentuser}`, {
 method: 'PATCH',
 body: JSON.stringify({
 wishlist: updatedwishlist

@@ -16,8 +16,8 @@ window.addEventListener("load", () => {
 let currentuser = localStorage.getItem("currentuser");
 
 async function displaycart(){
-                          
-    let res = await fetch (`http://localhost:5000/user/${currentuser}`);
+
+    let res = await fetch (`https://shoppers-stop-com.herokuapp.com/user/${currentuser}`);
     let data = await res.json();
     let cart = data.item[0].cart;
     if (cart.length != 0){
@@ -27,7 +27,7 @@ async function displaycart(){
         display.setAttribute("id", "products");
         cart.forEach(async (pro) => {
             pro = Number(pro);
-            let res = await fetch(`http://localhost:5000/product/view/${pro}`);
+            let res = await fetch(`https://shoppers-stop-com.herokuapp.com/product/view/${pro}`);
             let data = await res.json();
             let product = data.item[0];
             count++
@@ -52,7 +52,7 @@ async function displaycart(){
               div.setAttribute("id", divid);
               button.addEventListener("click", async () => {
                                      
-                  let res = await fetch (`http://localhost:5000/user/${currentuser}`);
+                  let res = await fetch (`https://shoppers-stop-com.herokuapp.com/user/${currentuser}`);
                   let data = await res.json();
 
                   let index = button.value;
@@ -72,7 +72,7 @@ async function displaycart(){
 
                   let id = data.item[0]._id;
                                        
-                  let sendres = await fetch(`http://localhost:5000/user/${currentuser}`, {
+                  let sendres = await fetch(`https://shoppers-stop-com.herokuapp.com/user/${currentuser}`, {
                   method: 'PATCH',
                   body: JSON.stringify({
                   cart: updatedcart

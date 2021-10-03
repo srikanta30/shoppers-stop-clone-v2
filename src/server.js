@@ -50,7 +50,7 @@ let port = process.env.PORT || 5000;
 app.listen(port, async () => {
 try {
  await connect();
- console.log(`Listening On Port http://localhost:${port}...`);
+ console.log(`Listening On Port ${port}...`);
  }
 catch (err) {
  console.log(`Error! Database Not Connected.`);

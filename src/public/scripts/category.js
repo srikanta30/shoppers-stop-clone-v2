@@ -9,7 +9,7 @@ window.addEventListener("load", async () => {
     }
     let currentuser = localStorage.getItem("currentuser");
                    
-  let res = await fetch (`http://localhost:5000/user/${currentuser}`);
+  let res = await fetch (`https://shoppers-stop-com.herokuapp.com/user/${currentuser}`);
   let data = await res.json();
   let count = data.item[0].cart.length;
   let countw = data.item[0].wishlist.length;
@@ -31,7 +31,7 @@ let productsDiv = document.getElementById("products");
 
 async function getProducts(){
     let count = 0;
-    let res = await fetch('http://localhost:5000/product');
+    let res = await fetch('https://shoppers-stop-com.herokuapp.com/product');
     let data = await res.json();
     let myTshirts = data.items;
     myTshirts.forEach(function (product, n) {
@@ -89,7 +89,7 @@ for (let i = 0; i < coll.length; i++) {
 async function sortByDiscount(){
     productsDiv.innerHTML = "";
     let count = 0;
-    let res = await fetch('http://localhost:5000/product');
+    let res = await fetch('https://shoppers-stop-com.herokuapp.com/product');
     let data = await res.json();
     let myTshirts = data.items;
 
@@ -129,7 +129,7 @@ async function sortByDiscount(){
   async function sortByRating(){
     let count = 0;
     productsDiv.innerHTML = "";
-    let res = await fetch('http://localhost:5000/product');
+    let res = await fetch('https://shoppers-stop-com.herokuapp.com/product');
     let data = await res.json();
     let myTshirts = data.items;
 
@@ -169,7 +169,7 @@ async function sortByDiscount(){
   async function sortByPriceLow(){
     let count = 0;
     productsDiv.innerHTML = "";
-    let res = await fetch('http://localhost:5000/product');
+    let res = await fetch('https://shoppers-stop-com.herokuapp.com/product');
     let data = await res.json();
     let myTshirts = data.items;
 
@@ -209,7 +209,7 @@ async function sortByDiscount(){
   async function sortByPriceHigh(){
     let count = 0;
     productsDiv.innerHTML = "";
-    let res = await fetch('http://localhost:5000/product');
+    let res = await fetch('https://shoppers-stop-com.herokuapp.com/product');
     let data = await res.json();
     let myTshirts = data.items;
 
@@ -251,7 +251,7 @@ async function sortByDiscount(){
   async function filterSearch(){
     let count = 0;
     productsDiv.innerHTML = "";
-    let res = await fetch('http://localhost:5000/product');
+    let res = await fetch('https://shoppers-stop-com.herokuapp.com/product');
     let data = await res.json();
     let myTshirts = data.items;
     let inputs = document.querySelectorAll("input[type='checkbox']");
