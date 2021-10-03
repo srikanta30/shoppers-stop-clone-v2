@@ -101,9 +101,11 @@ window.addEventListener("load", function(){
             payableamount.textContent = `₹${carttotal}`;
             let totaldiscount = document.getElementById("totaldiscount");
             totaldiscount.textContent = `₹${discount}`;
-            })
 
-            paypal.Buttons({
+
+            document.getElementById('#paypal').innerHTML = "";
+
+             paypal.Buttons({
 
                 createOrder: function(data, actions) {
                   return actions.order.create({
@@ -128,6 +130,10 @@ window.addEventListener("load", function(){
                   });
                 }
               }).render('#paypal');
+
+            })
+
+           
 
             
 
