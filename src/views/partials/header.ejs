@@ -12,7 +12,8 @@
           let logout = document.getElementById('logout');
           window.addEventListener('load', ()=> {
             if (localStorage.getItem("currentuser" != null)){
-              logout.innerText = "LOG OUT";
+              logout.innerHTML = "LOG OUT";
+              logout.href = "/";
             }
           })
            logout.onclick = () => {
