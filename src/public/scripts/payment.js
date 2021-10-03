@@ -98,6 +98,7 @@ window.addEventListener("load", function(){
             let coupon = document.getElementById("coupon");
             coupon.textContent = "30%";
             let payableamount = document.getElementById("payableamount");
+            payableamount.value = carttotal;
             payableamount.textContent = `₹${carttotal}`;
             let totaldiscount = document.getElementById("totaldiscount");
             totaldiscount.textContent = `₹${discount}`;
