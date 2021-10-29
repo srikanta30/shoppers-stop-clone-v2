@@ -413,6 +413,9 @@ span {
     #direc {
         display: none;
     }
+    #prodinfo{
+        margin-top:80px;
+    }
     #main {
         margin: 10px auto;
         background-color: black;
