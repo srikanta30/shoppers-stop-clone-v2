@@ -402,12 +402,7 @@ span {
         grid-template-areas: 'mainimg' 'navleft' 'navright';
     }
     #category {
-        display: flex;
-        flex-direction: column;
-        gap: 0.7em;
-        text-align: center;
-        margin: auto;
-        margin-top: 21vh;
+        display: none;
     }
     #category p {
         border: 1px solid gray;
