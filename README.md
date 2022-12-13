@@ -17,7 +17,7 @@
 ---
 
 #### Project Demo: 
-- **[Checkout The Live Project Demo](https://shoppers-stop-com.herokuapp.com/)**
+- **[Checkout The Live Project Demo](https://shoppers-stop.onrender.com)**
 
 
 
