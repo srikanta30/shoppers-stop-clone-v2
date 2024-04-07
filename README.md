@@ -11,11 +11,6 @@
 
 ---
 
-#### Presentation Video: 
-- **[Checkout The Demo Video On LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:6850473762471731200/)**
-
----
-
 #### Project Demo: 
 - **[Checkout The Live Project Demo](https://shoppers-stop.onrender.com)**
 
